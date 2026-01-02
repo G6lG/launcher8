@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/cookie.png" type="image/png">
+</head>
+<body>
+    <!-- Верхняя панель -->
+    <div class="top-bar">
+        <div class="cookie-counter">
+            <span id="cookie-count">0</span> cookies
+        </div>
+        <div class="cps-counter">
+            <span id="cps">0</span> per second
+        </div>
+        <div class="user-info">
+            <span id="username"></span>
+            <button id="logout-btn">Logout</button>
+        </div>
+    </div>
+    
+    <!-- Главная печенька -->
+    <div class="game-area">
+        <div class="big-cookie" id="big-cookie">
+            <img src="assets/images/cookie.png" alt="Cookie" id="cookie-img">
+            <div class="cookie-shine"></div>
+        </div>
+        <div class="click-feedback" id="click-feedback"></div>
+    </div>
+    
+    <!-- Панель генераторов -->
+    <div class="generators-panel">
+        <h2>Generators</h2>
+        <div class="generators-list" id="generators-list">
+            <!-- Генераторы будут добавляться через JS -->
+        </div>
+    </div>
+    
+    <!-- Панель улучшений -->
+    <div class="upgrades-panel">
+        <h2>Upgrades</h2>
+        <div class="upgrades-list" id="upgrades-list">
+            <!-- Улучшения будут добавляться через JS -->
+        </div>
+    </div>
+    
+    <!-- Системные элементы -->
+    <div class="system-panel">
+        <button id="save-btn">💾 Save</button>
+        <button id="options-btn">⚙ Options</button>
+        <div class="version">v1.0.0</div>
+    </div>
+    
+    <!-- Модальное окно входа/регистрации -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <h2>Cookie Clicker Clone</h2>
+            <div class="form-container">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="login">Login</button>
+                    <button class="tab-btn" data-tab="register">Register</button>
+                </div>
+                
+                <form id="login-form" class="tab-content active">
+                    <input type="text" id="login-username" placeholder="Username" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                
+                <form id="register-form" class="tab-content">
+                    <input type="text" id="register-username" placeholder="Username" required minlength="3">
+                    <input type="email" id="register-email" placeholder="Email" required>
+                    <input type="password" id="register-password" placeholder="Password" required minlength="6">
+                    <button type="submit">Register</button>
+                </form>
+                
+                <div class="error-message" id="auth-error"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Аудио элементы -->
+    <audio id="click-sound" src="assets/sounds/click.mp3" preload="auto"></audio>
+    <audio id="buy-sound" src="assets/sounds/buy.mp3" preload="auto"></audio>
+    <audio id="bg-music" src="assets/sounds/background.mp3" loop preload="auto"></audio>
+    
+    <script src="api.js"></script>
+    <script src="game.js"></script>
+    <script src="ui.js"></script>
+</body>
+</html>
